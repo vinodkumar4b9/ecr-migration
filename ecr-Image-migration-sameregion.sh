@@ -9,5 +9,9 @@ for repo in $REPOSITORIES; do
            echo "Tag complete"
            docker push $3.dkr.ecr.$2.amazonaws.com/vinod-temp:$tag
            echo "Push complete"
+           docker rmi $3.dkr.ecr.$1.amazonaws.com/$repo:$tag --force
+           docker rmi $3.dkr.ecr.$2.amazonaws.com/vinod-temp:$tag --force
+           echo " Image Deleteion complete"
+
       done
 done
